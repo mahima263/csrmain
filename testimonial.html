@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Slider - 3 Cards Per Row</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fef8f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .testimonials-section {
+            background: linear-gradient(135deg, #fef8f6 0%, #f9eae6 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #b04b34;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: "";
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #b04b34, #d46a4c);
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-slide {
+            min-width: 33.333%;
+            padding: 0 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(176, 75, 52, 0.1);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f5d5cc;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(176, 75, 52, 0.15);
+        }
+
+        .testimonial-img {
+            text-align: center;
+            padding: 25px 0 15px;
+            background: linear-gradient(to bottom, #b04b34, #d46a4c);
+        }
+
+        .testimonial-img img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-content {
+            padding: 25px 25px 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #b04b34;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .designation {
+            font-size: 0.95rem;
+            color: #d46a4c;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .message {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        /* Navigation Controls */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: #b04b34;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(176, 75, 52, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #8f3c29;
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #e0b8ae;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #b04b34;
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .testimonial-slide {
+                min-width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-slide {
+                min-width: 100%;
+            }
+            
+            .testimonial-content {
+                padding: 20px;
+            }
+            
+            .testimonial-img img {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .testimonial-slider {
+                padding: 0 20px;
+            }
+        }
+
+        .quote-icon {
+            text-align: center;
+            color: #b04b34;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0 50px;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(176, 75, 52, 0.08);
+            border: 1px solid #f5d5cc;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #b04b34;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #8f3c29;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Partners Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. A. S. PRASAD">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <h3>Dr. A. S. PRASAD</h3>
+                                <p class="designation">General Manager, Integrated Rack Solutions (VERTIV)</p>
+                                <p class="message">
+                                    Vertiv takes pride in associating with IIT Kanpur and Shiksha Sopon for making a difference in the lives of the underprivileged in the country through CSR initiative. Education, sustainability and Energy are themes for Vertiv for our CSR funding and we look forward to partnership with IIT Kanpur for further work in all these tracks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Mr. RAFIQ SOMANI">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <h3>Mr. RAFIQ SOMANI</h3>
+                                <p class="designation">Area VP India & ASEAN Sales (Ansys)</p>
+                                <p class="message">
+                                    IIT Kanpur's unwavering focus on social responsibility, deep understanding of the community's needs, and commitment to creating meaningful change have been invaluable in propelling our collaborative journey for CSR activities. Through CSR funding, Ansys has enabled the IITK team to promote and drive systematic and thorough research.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="MR. DHEERAJ SAXENA">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <h3>MR. DHEERAJ SAXENA</h3>
+                                <p class="designation">Director: Global Engineering, Portescap, Regal Rexnord</p>
+                                <p class="message">
+                                    This collaboration with IIT Kanpur is a testament to a shared vision of advancing healthcare solutions through cutting-edge research. Together, we aim to explore new frontiers in medical technology, blending Partescap's industry expertise with the academic, rigor and innovative spirit of IIT Kanpur.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="DR. RICHARD LOBO">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <h3>DR. RICHARD LOBO</h3>
+                                <p class="designation">
+                                    Global Head Business Excellence, Innovation, R&D, Tata Chemicals Ltd.
+                                </p>
+                                <p class="message">
+                                    Our journey with IIT Kanpur has been very encouraging not just in terms of Scientific rigor but also the Institute's strong understanding of Industry-Academia collaboration, which has resulted in jointly achieving milestones on time and sharpening of application development outcomes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Controls -->
+                <div class="slider-nav">
+                    <button class="nav-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="slider-dots">
+                        <div class="dot active" data-slide="0"></div>
+                        <div class="dot" data-slide="1"></div>
+                    </div>
+                    
+                    <button class="nav-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            
+            let currentSlide = 0;
+            const slidesPerView = 3;
+            const slideCount = Math.ceil(slides.length / slidesPerView);
+            
+            // Function to update slider position
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            // Next slide function
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+            
+            // Event listeners for navigation buttons
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+            
+            // Auto slide every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Adjust slides per view based on screen size
+            function adjustSlidesPerView() {
+                const width = window.innerWidth;
+                if (width <= 768) {
+                    // 1 slide on mobile
+                    document.querySelectorAll('.testimonial-slide').forEach(slide => {
+                        slide.style.minWidth = '100%';
+                    });
+                } else if (width <= 992) {
+                    // 2 slides on tablet
+                    document.querySelectorAll('.testimonial-slide').forEach(slide => {
+                        slide.style.minWidth = '50%';
+                    });
+                } else {
+                    // 3 slides on desktop
+                    document.querySelectorAll('.testimonial-slide').forEach(slide => {
+                        slide.style.minWidth = '33.333%';
+                    });
+                }
+            }
+            
+            // Initial adjustment
+            adjustSlidesPerView();
+            
+            // Adjust on window resize
+            window.addEventListener('resize', adjustSlidesPerView);
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSR Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .csr-banner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .csr-banner-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .csr-banner-image {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            display: block;
+            object-fit: cover; /* Ensures image covers area without distortion */
+            object-position: center; /* Centers the image focus */
+        }
+
+        /* For older browsers that don't support object-fit */
+        @supports not (object-fit: cover) {
+            .csr-banner {
+                height: 100vh;
+                background: url('assets/img/csrimages/banner.jpeg') no-repeat center center;
+                background-size: cover;
+            }
+            
+            .csr-banner-image {
+                display: none; /* Hide img element when using background image */
+            }
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .csr-banner-image {
+                /* On mobile, we might want to adjust positioning slightly */
+                object-position: center top; /* Focus on top of image for mobile */
+            }
+            
+            /* For very small screens, reduce height slightly to prevent cutting */
+            @media (max-height: 500px) {
+                .csr-banner-image {
+                    height: 90vh;
+                }
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .csr-banner-image {
+                /* Keep default settings, object-fit: cover handles it well */
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="csr-banner" class="csr-banner">
+        <div class="csr-banner-wrapper">
+            <!-- Using a placeholder image - replace with your actual image path -->
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                 class="csr-banner-image" 
+                 alt="CSR Banner">
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSR Benefits - IIT Kanpur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B04B34;
+            --primary-light: #f8e8e5;
+            --primary-dark: #8f3c28;
+            --dark: #222;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .benefits-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .benefit-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 220px;
+            background: white;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            height: 60px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 1.6rem;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+        }
+        
+        .benefit-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            min-height: 52px;
+        }
+        
+        .benefit-description {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        
+        .transparency-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 60px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .transparency-icon {
+            flex: 0 0 70px;
+            height: 70px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 25px;
+        }
+        
+        .transparency-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .transparency-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .transparency-text {
+            color: #555;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .benefit-item {
+                min-width: 180px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .benefits-container {
+                gap: 15px;
+            }
+            
+            .benefit-item {
+                min-width: 160px;
+                max-width: 180px;
+                padding: 20px 15px;
+            }
+            
+            .benefit-title {
+                font-size: 1rem;
+                min-height: 48px;
+            }
+            
+            .benefit-description {
+                font-size: 0.85rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .transparency-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+            
+            .transparency-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .benefits-section {
+                padding: 60px 0;
+            }
+            
+            .benefits-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .benefit-item {
+                min-width: 100%;
+                max-width: 320px;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .benefit-icon {
+                height: 50px;
+                width: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .transparency-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">CSR Advantages</span>
+                <h2 class="section-title">Benefits of CSR at IIT Kanpur</h2>
+                <p class="section-subtitle">Partner with us to create meaningful change while maximizing your corporate social responsibility impact</p>
+            </div>
+            
+            <div class="benefits-container">
+                <!-- Benefit 1 -->
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="bi bi-cash-coin"></i>
+                    </div>
+                    <h3 class="benefit-title">100% CSR Tax Exemption</h3>
+                    <p class="benefit-description">Maximize impact while optimizing investment as per government norms</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="benefit-icon">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+                    <h3 class="benefit-title">Advanced R&D Ecosystem</h3>
+                    <p class="benefit-description">Where innovation meets real-world solutions</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <h3 class="benefit-title">Nation-Building Legacy</h3>
+                    <p class="benefit-description">Proven force for transformative change</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="250">
+                    <div class="benefit-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h3 class="benefit-title">Measurable Social Impact</h3>
+                    <p class="benefit-description">Clear metrics and demonstrated outcomes</p>
+                </div>
+                
+                <!-- Benefit 5 -->
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3 class="benefit-title">Transparent Implementation</h3>
+                    <p class="benefit-description">Every contribution counts and is accounted for</p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>
