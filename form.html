@@ -535,16 +535,42 @@
                     <li><a href="index.html#impactful-projects">Projects</a></li>
                     <li><a href="form.html" class="active">Forms</a></li>
                     <li><a href="https://iitk.ac.in/dora/iitk-samanvay-2025/">Events</a></li>
-                    <li class="dropdown">
-                        <a href="index.html#testimonials">Publications</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="assets/img/about/Samanvay_Corporate_Newsletter_Volume 1 (1).pdf"
-                                    target="_blank">Samanvay
-                                    Newsletter – Vol 1</a></li>
-                            <li><a href="sdg/Accelerating Possibilities.pdf" target="_blank">Accelerating
-                                    Possibilities</a></li>
+                    <li class="dropdown" >
+                        <a href="#" style=" color: #333; font-weight: 600; ; border-radius:4px;">
+                          Publications
+                        </a>
+                      
+                        <ul class="dropdown-menu" style="position: absolute; top: 100%; left: 0; margin: 0; padding: 6px 0; min-width: 220px; background: #fff; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: none; z-index: 1000;">
+                          
+                          <li style="list-style:none;">
+                            <a href="assets/img/about/Samanvay_Corporate_Newsletter_Volume 1 (1).pdf" target="_blank" style="display:block; padding: 8px 12px; text-decoration:none; color:#333; font-size:14px;">Samanvay Newsletter – Vol 1</a>
+                          </li>
+                      
+                          <li style="list-style:none;">
+                            <a href="https://www.iitk.ac.in/dora/samvad.php" target="_blank" style="display:block; padding: 8px 12px; text-decoration:none; color:#333; font-size:14px;">Samvad</a>
+                          </li>
+                      
+                          <li style="list-style:none;">
+                            <a href="Accelerating Innovation_Proposal_V12_INR (2) (3) (1).pdf" target="_blank" style="display:block; padding: 8px 12px; text-decoration:none; color:#333; font-size:14px;">Accelerating Innovation Proposal</a>
+                          </li>
+                      
+                          <li style="list-style:none;">
+                            <a href="iitk advantage.pdf" target="_blank" style="display:block; padding: 8px 12px; text-decoration:none; color:#333; font-size:14px;">IITK Advantage</a>
+                          </li>
+                      
                         </ul>
-                    </li>
+                      </li>
+                      
+                      <script>
+                        // simple hover behavior
+                        document.querySelector('.dropdown').addEventListener('mouseenter', function() {
+                          this.querySelector('.dropdown-menu').style.display = 'block';
+                        });
+                      
+                        document.querySelector('.dropdown').addEventListener('mouseleave', function() {
+                          this.querySelector('.dropdown-menu').style.display = 'none';
+                        });
+                      </script>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -554,7 +580,356 @@
 
         </div>
     </header>
-
+    <style>
+        /* ===== HEADER & NAVIGATION STYLES ===== */
+        
+        /* Header Background */
+        .header {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(12px);
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+          position: fixed;
+          top: 0;
+          right: 0;
+          left: 0;
+          z-index: 1030;
+          padding: 15px 0;
+        }
+    
+        /* Logo Styling */
+        .logo {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+        }
+    
+        .iitk-logo {
+          height: 80px;
+          width: auto;
+        }
+    
+        /* Navigation Menu */
+        .navmenu {
+          display: flex;
+          align-items: center;
+        }
+    
+        .navmenu ul {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+    
+        .navmenu li {
+          position: relative;
+          padding: 0 10px;
+        }
+    
+        .navmenu a {
+          color: #000000 !important;
+          font-weight: 500;
+          padding: 12px 15px;
+          text-decoration: none;
+          transition: 0.3s ease;
+          position: relative;
+        }
+    
+        .navmenu a:hover {
+          color: #B04B34 !important;
+        }
+    
+        /* Dropdown Menu */
+        .navmenu .dropdown ul {
+          display: block;
+          position: absolute;
+          left: 0;
+          top: calc(100% + 30px);
+          opacity: 0;
+          visibility: hidden;
+          background: #fff;
+          box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+          transition: 0.3s;
+          border-radius: 4px;
+          z-index: 99;
+          min-width: 250px;
+        }
+    
+        .navmenu .dropdown:hover > ul {
+          opacity: 1;
+          top: 100%;
+          visibility: visible;
+        }
+    
+        .navmenu .dropdown ul li {
+          min-width: 250px;
+        }
+    
+        .navmenu .dropdown ul a {
+          padding: 10px 20px;
+          font-size: 15px;
+          text-transform: none;
+          color: #333;
+          display: block;
+        }
+    
+        .navmenu .dropdown ul a:hover {
+          color: #B04B34;
+          background: #f8f9fa;
+        }
+    
+        /* Talk to Us Button - ALWAYS VISIBLE OUTSIDE HAMBURGER MENU */
+        .btn-getstarted {
+          background: #B04B34;
+          color: #fff;
+          padding: 12px 25px;
+          border-radius: 6px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          border: none;
+          cursor: pointer;
+          display: inline-block;
+          margin-left: 20px; /* Spacing from hamburger menu */
+        }
+    
+        .btn-getstarted:hover {
+          background: #922f23;
+          color: #fff;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(176, 75, 52, 0.2);
+        }
+    
+        /* ===== MOBILE NAVIGATION STYLES (≤ 1199px) ===== */
+        @media (max-width: 1199px) {
+          /* Mobile Hamburger Toggle Button */
+          .mobile-nav-toggle {
+            display: block !important;
+            font-size: 28px;
+            cursor: pointer;
+            line-height: 0;
+            transition: 0.5s;
+            color: #000;
+            z-index: 9999;
+            position: relative;
+            background: none;
+            border: none;
+            padding: 0;
+          }
+    
+          /* Close (X) icon styling when menu is open */
+          .mobile-nav-toggle.bi-x {
+            color: #fff;
+            position: fixed;
+            top: 25px;
+            right: 20px;
+            z-index: 10000;
+          }
+    
+          /* Mobile Navigation Menu */
+          .navmenu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: #B04B34;
+            padding: 100px 20px 30px;
+            transition: all 0.5s ease;
+            z-index: 9998;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+          }
+    
+          /* Show mobile menu when active */
+          .navmenu.active {
+            right: 0;
+          }
+    
+          /* Mobile menu list */
+          .navmenu ul {
+            display: block;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+          }
+    
+          /* Mobile menu items */
+          .navmenu li {
+            padding: 0;
+            margin-bottom: 15px;
+            width: 100%;
+          }
+    
+          /* Mobile menu links */
+          .navmenu a {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 16px;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 5px;
+            transition: 0.3s;
+            width: 100%;
+          }
+    
+          .navmenu a:hover {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.1);
+          }
+    
+          /* Mobile dropdown menus */
+          .navmenu .dropdown ul {
+            position: static;
+            display: none;
+            opacity: 1;
+            visibility: visible;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+            margin-top: 10px;
+            margin-left: 20px;
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+            padding-left: 10px;
+          }
+    
+          /* Show dropdown when active on mobile */
+          .navmenu .dropdown.active ul {
+            display: block;
+          }
+    
+          .navmenu .dropdown ul li {
+            min-width: auto;
+          }
+    
+          /* Mobile overlay background */
+          .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9997;
+            display: none;
+            backdrop-filter: blur(4px);
+          }
+    
+          /* Show overlay when menu is active */
+          .mobile-nav-overlay.active {
+            display: block;
+          }
+    
+          /* Ensure Talk to Us button remains visible on mobile */
+          .btn-getstarted {
+            margin-left: auto; /* Push to the right */
+            margin-right: 60px; /* Space for hamburger icon */
+            font-size: 14px;
+            padding: 10px 20px;
+          }
+        }
+    
+        /* ===== DESKTOP STYLES (≥ 1200px) ===== */
+        @media (min-width: 1200px) {
+          .mobile-nav-toggle {
+            display: none !important;
+          }
+          
+          .mobile-nav-overlay {
+            display: none !important;
+          }
+        }
+    
+        /* ===== BANNER SECTION STYLES ===== */
+        .csr-banner {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+        }
+    
+        .csr-banner-wrapper {
+          width: 100%;
+          height: 90vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        .csr-banner-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+        }
+    
+        /* ===== RESPONSIVE BANNER IMAGES ===== */
+        @media (max-width: 1024px) {
+          .csr-banner-wrapper {
+            height: 90vh;
+          }
+        }
+    
+        @media (max-width: 768px) {
+          .csr-banner-wrapper {
+            height: 85vh;
+          }
+          /* Replace banner image on mobile */
+          .csr-banner-image {
+            content: url("assets/img/about/bannermobile.jpeg");
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+    
+        @media (max-width: 480px) {
+          .csr-banner-wrapper {
+            height: 80vh;
+          }
+        }
+    
+        /* iPad specific styles */
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+          .csr-banner-image {
+            content: url("assets/img/about/bannermobile.jpeg");
+            object-fit: cover;
+            object-position: center;
+          }
+          .csr-banner-wrapper {
+            height: 85vh;
+          }
+        }
+    
+        @media (max-width: 1199px) {
+      .header .container {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* center align baseline */
+      }
+    
+      .logo {
+        order: 1;   /* logo first */
+        margin: 0 auto; /* center push */
+      }
+    
+      .btn-getstarted {
+        order: 2;   /* talk to us second */
+        margin-left: auto;
+        margin-right: 10px;
+      }
+    
+      .mobile-nav-toggle {
+        order: 3;   /* hamburger last */
+        margin-left: 0;
+        margin-right: 0;
+      }
+    
+      nav.navmenu {
+        order: 4; /* menu lowest priority */
+      }
+    }
+    
+      </style>
     <!-- Page Title Section -->
    
 
