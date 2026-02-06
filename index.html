@@ -769,104 +769,138 @@
         </div>
 
 
-        <div class="row g-4">
+       <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-          <!-- Card 1 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="domain-box">
-              <div class="domain-icon">
-                <i class="bi bi-heart-pulse-fill"></i>
-              </div>
-              <div class="domain-info">
-                <h5>Healthcare</h5>
-                <p>
-                  Supporting health of the underserved communities through affordable technologies,
-                  preventive awareness, and accessible delivery.
-                </p>
-              </div>
-            </div>
-          </div>
+<style>
+  .domain-box {
+    height: 100%;
+    padding: 30px 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
 
-          <!-- Card 2 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="domain-box">
-              <div class="domain-icon">
-                <i class="bi bi-leaf-fill"></i>
-              </div>
-              <div class="domain-info">
-                <h5>Environment & Sustainability</h5>
-                <p>
-                  Addressing ecological challenges to promote environmental stewardship
-                  and long-term sustainability.
-                </p>
-              </div>
-            </div>
-          </div>
+  .domain-box:hover {
+    transform: translateY(-6px);
+  }
 
-          <!-- Card 3 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="domain-box">
-              <div class="domain-icon">
-                <i class="bi bi-mortarboard-fill"></i>
-              </div>
-              <div class="domain-info">
-                <h5>Education, Skill & Development</h5>
-                <p>
-                  Fostering inclusive learning and skill empowerment through digital platforms,
-                  vocational training, and teacher development.
-                </p>
-              </div>
-            </div>
-          </div>
+  .domain-icon {
+    font-size: 48px;
+    color: #0d6efd;
+    margin-bottom: 20px;
+    align-items: center;
+  }
 
-          <!-- Card 4 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="domain-box">
-              <div class="domain-icon">
-                <i class="bi bi-lightbulb-fill"></i>
-              </div>
-              <div class="domain-info">
-                <h5>Research & Innovation</h5>
-                <p>
-                  Driving problem-oriented, socially relevant research to extend the power
-                  of science and technology to real-world challenges.
-                </p>
-              </div>
-            </div>
-          </div>
+  .domain-info h5 {
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
 
-          <!-- Card 5 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="domain-box">
-              <div class="domain-icon">
-                <i class="bi bi-people-fill"></i>
-              </div>
-              <div class="domain-info">
-                <h5>Community Welfare</h5>
-                <p>
-                  Enhancing quality of life in rural and peri-urban areas
-                  through participatory community development.
-                </p>
-              </div>
-            </div>
-          </div>
+  .domain-info p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 0;
+  }
+</style>
 
-          <!-- Card 6 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="domain-box">
-              <div class="domain-icon">
-                <i class="bi bi-building-fill"></i>
-              </div>
-              <div class="domain-info">
-                <h5>Infrastructure</h5>
-                <p>
-                  Building robust infrastructure for hostels, laboratories, and sports facilities for the holistic development of students which enhances academic productivity.
-                </p>
-              </div>
-            </div>
-          </div>
+<div class="container">
+  <div class="row g-4">
 
+    <!-- Card 1 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="domain-box h-100">
+       
+        <div class="domain-info">
+          <h5>Healthcare</h5>
+          <p>
+            Supporting health of the underserved communities through affordable technologies,
+            preventive awareness, and accessible delivery.
+          </p>
         </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="domain-box h-100">
+       
+        <div class="domain-info">
+          <h5>Environment & Sustainability</h5>
+          <p>
+            Addressing ecological challenges to promote environmental stewardship
+            and long-term sustainability.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="domain-box h-100">
+       
+        <div class="domain-info">
+          <h5>Education, Skill & Development</h5>
+          <p>
+            Fostering inclusive learning and skill empowerment through digital platforms,
+            vocational training, and teacher development.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="domain-box h-100">
+       
+        <div class="domain-info">
+          <h5>Research & Innovation</h5>
+          <p>
+            Driving problem-oriented, socially relevant research to extend the power
+            of science and technology to real-world challenges.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="domain-box h-100">
+        
+        <div class="domain-info">
+          <h5>Community Welfare</h5>
+          <p>
+            Enhancing quality of life in rural and peri-urban areas
+            through participatory community development.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="domain-box h-100">
+       
+        <div class="domain-info">
+          <h5>Infrastructure</h5>
+          <p>
+            Building robust infrastructure for hostels, laboratories, and sports facilities
+            for the holistic development of students which enhances academic productivity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
       </div>
     </section>
 
